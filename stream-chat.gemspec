@@ -16,7 +16,6 @@ Gem::Specification.new do |gem|
   gem.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  gem.required_ruby_version = '>=2.5.0'
 
   gem.add_dependency 'faraday'
   gem.add_dependency 'jwt'

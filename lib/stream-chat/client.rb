@@ -97,7 +97,7 @@ module StreamChat
     def search(filter_conditions, query, sort: nil, **options)
       offset = options[:offset]
       next_value = options[:next]
-      raise ArgumentError, 'cannot use offset with next or sort parameters' if offset&.positive? && (next_value || (!sort.nil? && !sort.empty?))
+      raise ArgumentError, 'cannot use offset with next or sort parameters' if (offset.to_i > 0) && (next_value || (!sort.nil? && !sort.empty?))
 
       to_merge = {
         filter_conditions: filter_conditions,
@@ -473,8 +473,8 @@ module StreamChat
 
     def get_default_headers
       {
-        'Content-Type': 'application/json',
-        'X-Stream-Client': get_user_agent
+        'Content-Type' => 'application/json',
+        'X-Stream-Client' => get_user_agent
       }
     end
 

@@ -71,7 +71,7 @@ module StreamChat
 
       if @id == '' && @members.length.positive?
         params['members'] = []
-        @members&.each do |m|
+        @members.each do |m|
           params['members'] << m['user'].nil? ? m['user_id'] : m['user']['id']
         end
       end
