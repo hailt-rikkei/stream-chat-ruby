@@ -18,6 +18,8 @@ module StreamChat
       @custom_data = {} if @custom_data.nil?
     end
 
+    # test push github
+
     def url
       raise StreamChannelException, 'channel does not have an id' if @id.nil?
 
